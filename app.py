@@ -38,4 +38,4 @@ def plane_response():
     return statement("Unfortunately I do not have eyes")
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=443, ssl_context=('cert/cert.pem', 'cert/key.pem'))
