@@ -2,41 +2,40 @@ import requests
 import json
 import os
 from datetime import datetime, timezone
-from flask import Flask
-from ask_sdk_core.skill_builder import SkillBuilder
-from flask_ask_sdk.skill_adapter import SkillAdapter
+from flask import Flask, render_template
+from flask_ask import Ask, statement
 
 
-def get_closest_plane():
+# def get_closest_plane():
 
-    API_KEY = os.getenv("AVIATIONSTACK_API_KEY")
-    r = requests.get(f"http://api.aviationstack.com/v1/flights?access_key={API_KEY}&arr_icao=EGLC").json()
+#     API_KEY = os.getenv("AVIATIONSTACK_API_KEY")
+#     r = requests.get(f"http://api.aviationstack.com/v1/flights?access_key={API_KEY}&arr_icao=EGLC").json()
 
-    flight_info = []
+#     flight_info = []
 
-    now = datetime.now(timezone.utc)
-    closest_guess = 100000000
+#     now = datetime.now(timezone.utc)
+#     closest_guess = 100000000
 
-    for flight in r['data']:
-        est_arrival = datetime.fromisoformat(flight['arrival']['estimated'])
+#     for flight in r['data']:
+#         est_arrival = datetime.fromisoformat(flight['arrival']['estimated'])
 
-        arrival_delta = abs((now - est_arrival).seconds)
-        if arrival_delta < closest_guess:
-            closest_guess = arrival_delta
-            closest_arrival = est_arrival
-            departure_airport = flight['departure']['airport']
+#         arrival_delta = abs((now - est_arrival).seconds)
+#         if arrival_delta < closest_guess:
+#             closest_guess = arrival_delta
+#             closest_arrival = est_arrival
+#             departure_airport = flight['departure']['airport']
 
-    return f"best guess of your flight is {departure_airport} which arrives at {closest_arrival.strftime('%H:%M')}"
+#     return f"best guess of your flight is {departure_airport} which arrives at {closest_arrival.strftime('%H:%M')}"
 
-print(get_closest_plane())
+# print(get_closest_plane())
+
 
 app = Flask(__name__)
-skill_builder = SkillBuilder()
-# Register your intent handlers to the skill_builder object
+ask = Ask(app, '/')
 
-skill_adapter = SkillAdapter(
-    skill=skill_builder.create(), skill_id="amzn1.ask.skill.5376510e-fb7b-47b1-abaf-23077363a2cd", app=app)
+@ask.intent('PlaneInfo')
+def plane_response():
+    return statement("Unfortunately I do not have eyes")
 
-@app.route("/")
-def invoke_skill():
-    return skill_adapter.dispatch_request()
+if __name__ == '__main__':
+    app.run(debug=True)

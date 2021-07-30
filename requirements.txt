@@ -1,3 +1,2 @@
 flask
-ask_sdk_core
-flask_ask_sdk
+flask_ask
