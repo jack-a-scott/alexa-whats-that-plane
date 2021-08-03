@@ -64,5 +64,9 @@ def iss_response():
     else:
         return statement(f"The ISS is {dist} miles away! thats closer than a lambs whistle")
 
+@ask.intent('AMAZON.StopIntent')
+def stop_intent():
+    return None
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, ssl_context=('cert/cert.pem', 'cert/key.pem'))
