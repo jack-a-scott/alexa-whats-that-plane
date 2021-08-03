@@ -20,8 +20,6 @@ def get_closest_plane():
     closest_guess = 100000000
 
     for flight in r['data']:
-        print(flight)
-        break
         est_arrival = datetime.fromisoformat(flight['arrival']['estimated'])
 
         arrival_delta = abs((now - est_arrival).seconds)
