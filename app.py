@@ -52,15 +52,18 @@ def plane_response():
     try:
         return statement(get_closest_plane())
     except:
-        return statement("""
-        <speak>
-            <amazon:emotion name="excited" intensity="medium">
-                I am very excited!
-            </amazon:emotion>
-            <amazon:emotion name="disappointed" intensity="high">
-                Now I am a sad alexa.
-            </amazon:emotion>
-        </speak>""")
+        try:
+            return statement('''
+                <speak>
+                    <amazon:emotion name="excited" intensity="medium">
+                        I am very excited!
+                    </amazon:emotion>
+                    <amazon:emotion name="disappointed" intensity="high">
+                        Now I am a sad alexa.
+                    </amazon:emotion>
+                </speak>''')
+        except Exception as e:
+            print(e)
 
 @ask.intent('ISSInfo')
 def iss_response():
