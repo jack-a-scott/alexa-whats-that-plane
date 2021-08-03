@@ -52,7 +52,15 @@ def plane_response():
     try:
         return statement(get_closest_plane())
     except:
-        return statement("Unfortunately I do not have eyes")
+        return statement("""
+        <speak>
+            <amazon:emotion name="excited" intensity="medium">
+                I am very excited!
+            </amazon:emotion>
+            <amazon:emotion name="disappointed" intensity="high">
+                Now I am a sad alexa.
+            </amazon:emotion>
+        </speak>""")
 
 @ask.intent('ISSInfo')
 def iss_response():
@@ -67,6 +75,10 @@ def iss_response():
 @ask.intent('AMAZON.StopIntent')
 def stop_intent():
     return None
+
+@ask.intent('AMAZON.HelpIntent')
+def help_intent():
+    return statement("The only help you're getting is ")
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, ssl_context=('cert/cert.pem', 'cert/key.pem'))
