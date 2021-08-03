@@ -27,8 +27,9 @@ def get_closest_plane():
             closest_guess = arrival_delta
             closest_arrival = est_arrival
             departure_airport = flight['departure']['airport']
+            airline_name = flight['airline']['name']
 
-    return f"best guess of your flight is {departure_airport} which arrives at {closest_arrival.strftime('%H:%M')}"
+    return f"best guess of your flight is the {airline_name} flight from {departure_airport} which arrives into London City at {closest_arrival.strftime('%H:%M')}"
 
 def get_iss_distance():
     resp = requests.get("http://api.open-notify.org/iss-now.json").json()
