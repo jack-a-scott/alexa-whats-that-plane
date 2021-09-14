@@ -53,7 +53,7 @@ ask = Ask(app, '/')
 def plane_response():
     try:
         # return statement(get_closest_plane())
-        return statement('no')
+        return statement('<speak xmlns:amazon="http://www.amazon.com"><lang xml:lang="fr-FR">Non</lang></speak>')
     except Exception as e:
         print(e)
 
@@ -62,6 +62,7 @@ def spooky_response():
     return statement(r'''
         <speak xmlns:amazon="http://www.amazon.com">
             <phoneme alphabet="x-sampa" ph="?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\>\">dzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz</phoneme>
+            rrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr
         </speak>''')
 
 @ask.intent('ISSInfo')
