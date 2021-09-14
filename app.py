@@ -53,7 +53,7 @@ def plane_response():
     try:
         return statement(get_closest_plane())
     except Exception as e:
-        print(e)
+        return statement(e)
 
 @ask.intent('GetSpooky')
 def spooky_response():
