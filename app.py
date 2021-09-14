@@ -18,6 +18,7 @@ def get_closest_plane():
 
     now = datetime.now(timezone.utc)
     closest_guess = 100000000
+    print(r)
 
     for flight in r['data']:
         est_arrival = datetime.fromisoformat(flight['arrival']['estimated'])
