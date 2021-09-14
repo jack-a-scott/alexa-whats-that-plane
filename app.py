@@ -50,14 +50,23 @@ ask = Ask(app, '/')
 
 @ask.intent('PlaneInfo')
 def plane_response():
-    # try:
-        # return statement(get_closest_plane())
-    # except:
     try:
-        resp_text = '<speak xmlns:amazon="http://www.amazon.com"><amazon:emotion name="excited" intensity="high">I am very excited!</amazon:emotion><amazon:emotion name="disappointed" intensity="high">Now I am a sad alexa.</amazon:emotion></speak>'
-        return statement(resp_text)
+        return statement(get_closest_plane())
     except Exception as e:
         print(e)
+
+@ask.intent('Spooky')
+def spooky_response():
+    return statement('''
+        <speak xmlns:amazon="http://www.amazon.com">
+            <amazon:emotion name="excited" intensity="high">
+                I am very excited!
+            </amazon:emotion>
+            <amazon:emotion name="disappointed" intensity="high"> 
+                Now I am a sad alexa.
+            </amazon:emotion>
+        </speak>''')
+
 
 @ask.intent('ISSInfo')
 def iss_response():
