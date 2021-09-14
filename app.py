@@ -54,7 +54,7 @@ def plane_response():
         # return statement(get_closest_plane())
     # except:
     try:
-        resp_text = "<speak><amazon:emotion name='excited' intensity='high'>I am very excited!</amazon:emotion><amazon:emotion name='disappointed' intensity='high'>Now I am a sad alexa.</amazon:emotion></speak>"
+        resp_text = '<speak xmlns:amazon="http://www.amazon.com"><amazon:emotion name="excited" intensity="high">I am very excited!</amazon:emotion><amazon:emotion name="disappointed" intensity="high">Now I am a sad alexa.</amazon:emotion></speak>'
         return statement(resp_text)
     except Exception as e:
         print(e)
