@@ -53,7 +53,7 @@ ask = Ask(app, '/')
 def plane_response():
     try:
         # return statement(get_closest_plane())
-        return statement('<speak xmlns:amazon="http://www.amazon.com"><lang xml:lang="fr-FR">Non</lang></speak>')
+        return statement('<speak xmlns:amazon="http://www.amazon.com"><lang xml:lang="fr-FR">Non, Je suis parisien et tres rudement</lang></speak>')
     except Exception as e:
         print(e)
 
