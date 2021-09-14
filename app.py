@@ -52,7 +52,8 @@ ask = Ask(app, '/')
 @ask.intent('PlaneInfo')
 def plane_response():
     try:
-        return statement(get_closest_plane())
+        # return statement(get_closest_plane())
+        return statement('no')
     except Exception as e:
         print(e)
 
