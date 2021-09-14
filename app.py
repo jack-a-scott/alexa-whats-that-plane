@@ -66,7 +66,7 @@ def spooky_response():
             <amazon:emotion name="disappointed" intensity="high"> 
                 Now I am a sad alexa.
             </amazon:emotion>
-            <phoneme alphabet="ipa" ph="ʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤ">dzzzzzz</phoneme>
+            <phoneme alphabet="ipa" ph="ʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤ">dzzzzzzzzzzzzzzzz</phoneme>
             <amazon:domain name="fun">
                 Are you having a fun time? I am because I am a robot
             </amazon:domain>
