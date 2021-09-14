@@ -41,7 +41,7 @@ def get_iss_distance():
     home_geolocator = Nominatim(user_agent="HOME")
     home_location = home_geolocator.geocode("1 Tidal Basin Road London")
 
-    dist = distance.geodesic(iss_location.point, home_location.point).miles
+    dist = int(distance.geodesic(iss_location.point, home_location.point).miles)
     return dist
 
 
@@ -54,7 +54,8 @@ def plane_response():
         # return statement(get_closest_plane())
     # except:
     try:
-        return statement("<speak><amazon:emotion name='excited' intensity='high'>I am very excited!</amazon:emotion><amazon:emotion name='disappointed' intensity='high'>Now I am a sad alexa.</amazon:emotion></speak>")
+        resp_text = "<speak><amazon:emotion name='excited' intensity='high'>I am very excited!</amazon:emotion><amazon:emotion name='disappointed' intensity='high'>Now I am a sad alexa.</amazon:emotion></speak>"
+        return statement(resp_text)
     except Exception as e:
         print(e)
 
