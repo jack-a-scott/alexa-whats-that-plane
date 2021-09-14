@@ -55,7 +55,7 @@ def plane_response():
     except Exception as e:
         print(e)
 
-@ask.intent('Spooky')
+@ask.intent('GetSpooky')
 def spooky_response():
     return statement('''
         <speak xmlns:amazon="http://www.amazon.com">
