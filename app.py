@@ -58,30 +58,9 @@ def plane_response():
 
 @ask.intent('GetSpooky')
 def spooky_response():
-    return statement('''
+    return statement(r'''
         <speak xmlns:amazon="http://www.amazon.com">
-            <amazon:emotion name="excited" intensity="high">
-                I am very excited!
-            </amazon:emotion>
-            <amazon:emotion name="disappointed" intensity="high"> 
-                Now I am a sad alexa.
-            </amazon:emotion>
-            <phoneme alphabet="ipa" ph="ʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤʤ">dzzzzzzzzzzzzzzzz</phoneme>
-            <amazon:domain name="fun">
-                Are you having a fun time? I am because I am a robot
-            </amazon:domain>
-            <amazon:domain name="news">
-                This just in, lucy would like to be released from galactic kitten prison
-                <amazon:emotion name="disappointed" intensity="high">
-                    I still have news stories but now I am sad about them
-                </amazon:emotion>
-            </amazon:domain>
-            <amazon:effect name="whispered">
-                <amazon:emotion name="excited" intensity="high">
-                    Mr Xbox is not to be trusted, he is from <lang xml:lang="fr-FR">France</lang>
-                </amazon:emotion>
-            </amazon:effect>
-            
+            <phoneme alphabet="x-sampa" ph="?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\?\">dzzzzzzzzzzzzzzzz</phoneme>
         </speak>''')
 
 @ask.intent('ISSInfo')
